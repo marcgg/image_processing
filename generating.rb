@@ -1,22 +1,22 @@
 require "awesome_print"
 require 'rubygems'
-require 'rmagick'
+require 'gd2'
 
 width = 100
 height = 100
 data = Array.new(width) do
   Array.new(height) do
-    [rand(255), rand(255), rand(255)]
+    rand(16777216)
   end
 end
 
-
-img = Magick::Image.new(width, height)
-
+image = GD2::Image::TrueColor.new(width, height)
 data.each_with_index do |row, row_index|
   row.each_with_index do |item, column_index|
-    img.pixel_color(row_index, column_index, "rgb(#{item.join(', ')})")
+    image.set_pixel(row_index, column_index, item)
   end
 end
 
-img.write('output/demo.bmp')
+File.open('output/gd2demo.png', 'wb') do |file|
+  file << image.png
+end
