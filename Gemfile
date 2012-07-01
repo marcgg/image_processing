@@ -1,5 +1,4 @@
 source "http://rubygems.org"
 
-gem "rmagick"
 gem "awesome_print"
-gem "gd2"
+gem "paperclip", "~> 3.0"
