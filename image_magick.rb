@@ -1,5 +1,7 @@
+require "awesome_print"
 require 'rubygems'
 require 'rmagick'
+
 width = 100
 height = 100
 data = Array.new(width) do
